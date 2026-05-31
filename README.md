@@ -2,10 +2,13 @@
 
 Enterprise-grade AI Automation Platform
 
-## Tech Stack
+## Architecture
 
-- Next.js 16
-- FastAPI
+- Next.js Frontend
+- FastAPI API Gateway
+- Auth Service
+- RAG Service
+- Agent Service
 - PostgreSQL
 - Redis
 - RabbitMQ
@@ -13,9 +16,6 @@ Enterprise-grade AI Automation Platform
 - LangGraph
 - Multi-Agent AI
 
-## Services
+## Status
 
-- API Gateway
-- Auth Service
-- RAG Service
-- Agent Service
+🚀 In Development

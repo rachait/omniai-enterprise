@@ -1,11 +1,12 @@
 node_modules/
 .next/
-.env
-.env.local
 
 venv/
 __pycache__/
 *.pyc
+
+.env
+.env.local
 
 .vscode/
 
