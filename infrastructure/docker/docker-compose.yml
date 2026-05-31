@@ -1,0 +1,30 @@
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: omniai-postgres
+    environment:
+      POSTGRES_USER: omniai
+      POSTGRES_PASSWORD: omniai123
+      POSTGRES_DB: omniai
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    container_name: omniai-redis
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: omniai-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  qdrant:
+    image: qdrant/qdrant
+    container_name: omniai-qdrant
+    ports:
+      - "6333:6333"
