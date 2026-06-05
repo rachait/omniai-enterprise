@@ -4,6 +4,8 @@ from sqlalchemy.orm import Session
 from ..database import get_db
 from ..models import Execution
 
+import requests
+
 router = APIRouter()
 
 
@@ -21,7 +23,20 @@ def execute_workflow(
     db.commit()
     db.refresh(execution)
 
-    return execution
+    agent_response = requests.post(
+        "http://localhost:8004/agents/chat",
+        json={
+            "message": "Explain Agentic AI in simple words"
+        }
+    )
+
+    ai_result = agent_response.json()
+
+    return {
+        "workflow_id": workflow_id,
+        "status": "completed",
+        "ai_response": ai_result
+    }
 
 
 @router.get("/executions")
