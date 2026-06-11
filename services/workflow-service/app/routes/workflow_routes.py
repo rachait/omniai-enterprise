@@ -30,3 +30,19 @@ def get_workflows(
     db: Session = Depends(get_db)
 ):
     return db.query(Workflow).all()
+
+@router.get("/workflows/{workflow_id}")
+def get_workflow(
+    workflow_id: int,
+    db: Session = Depends(get_db)
+):
+    workflow = db.query(Workflow).filter(
+        Workflow.id == workflow_id
+    ).first()
+
+    if not workflow:
+        return {
+            "error": "Workflow not found"
+        }
+
+    return workflow
